@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin:0; padding: 0;}
+
+        body{
+            height: 500vh;
+            background :linear-gradient(45deg, dodgerblue, #fff);
+            position: relative;
+        }
+
+        .box1{
+            position: fixed;
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            top: 20px;
+            right: 20px;
+            background-color: #fff;
+        }
+
+        .box2{
+            position: absolute;
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            top: 300vh;
+            right: 500px;
+            background-color: #fff;
+        }
+
+        .box3{
+            position: fixed;
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3">top</div>
+
+<script src="js/jquery-3.5.1.min.js"></script>>
+<script>
+$(window).on("scroll",function(){
+    var scr = $(this).scrollTop(); //수직 스크롤바의 위치값
+    $(".box1").text(scr+"px");
+});
+
+//$(sel).offset().top -> 해당 선택자와 문서 최상단과의 거리
+
+var offsetTop=$(".box2").offset().top;
+var offsetleft=$(".box2").offset().left;
+$(".box2").text(offsetTop+"px" +offsetleft+"px");
+
+
+$(".box3").on("click",function(){
+    // $(window).scrollTop(0);
+    $("html,body").animate({
+        "scrollTop":0
+    });
+});
+
+
+</script>
+
+</body>
+</html>
